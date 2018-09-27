@@ -1,0 +1,45 @@
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Carro</p>
+      <button class="delete" aria-label="close" ng-click="$emit('close')"></button>
+    </header>
+    <form ng-submit="save()">
+      <section class="modal-card-body">
+        <div class="field">
+          <label for="nome" class="label">Nome</label>
+          <input type="text" class="input" name="name" id="name" ng-model="$ctrl.selectedCar.name" required>
+        </div>
+
+        <div class="field">
+          <label for="prodYear" class="label">Ano fabricação</label>
+          <input type="number" class="input" name="prodYear" id="prodYear" ng-model="$ctrl.selectedCar.prodYear" required>
+        </div>
+
+        <div class="field">
+          <label for="modelYear" class="label">Ano modelo</label>
+          <input type="number" class="input" name="modelYear" id="modelYear" ng-model="$ctrl.selectedCar.modelYear" required>
+        </div>
+
+        <div class="field">
+          <label for="brand" class="label">Marca</label>
+          <div class="select">
+            <select name="brand" id="brand" ng-model="$ctrl.selectedCar.brand">
+              <option ng-repeat="tempBrand in brands" ng-value="tempBrand.name">{{ tempBrand.name }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="value" class="label">Valor</label>
+          <input type="number" class="input" name="value" id="value" ng-model="$ctrl.selectedCar.value" required>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button type="submit" class="button is-success">Salvar</button>
+        <button type="button" class="button" ng-click="$emit('close')">Cancelar</button>
+      </footer>
+    </form>
+  </div>
+</div>
