@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="car in vm.cars">
+        <tr ng-repeat="car in vm.cars | filter:vm.filter:name">
           <td>{{ car.name }}</td>
           <td>{{ car.prodYear }}</td>
           <td>{{ car.modelYear }}</td>

@@ -1,4 +1,6 @@
-export function saveCarsController() {
+export function saveCarsController(brandsService) {
+
+  this.brands = brandsService.brands;
 
   this.save = () => {
     const car = {

@@ -9,7 +9,7 @@ const saveCarsModule = angular.module('saveCarsModule', [])
       carSaved: '&'
     },
     templateUrl: template,
-    controller: saveCarsController,
+    controller: ['brandsService', saveCarsController],
     controllerAs: 'vm'
   });
 
