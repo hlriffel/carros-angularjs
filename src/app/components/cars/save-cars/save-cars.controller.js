@@ -1,6 +1,6 @@
-export function saveCarsController($scope) {
+export function saveCarsController() {
 
-  $scope.save = () => {
+  this.save = () => {
     const car = {
       id: this.selectedCar.id,
       name: this.selectedCar.name,
@@ -10,7 +10,9 @@ export function saveCarsController($scope) {
       value: this.selectedCar.value
     };
 
-    $scope.$emit('carSaved', car);
+    this.carSaved({
+      car
+    });
 
     this.selectedCar = {};
   };

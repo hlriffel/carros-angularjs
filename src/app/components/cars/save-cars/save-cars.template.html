@@ -3,29 +3,29 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Carro</p>
-      <button class="delete" aria-label="close" ng-click="$emit('close')"></button>
+      <button class="delete" aria-label="close" ng-click="vm.onClose()"></button>
     </header>
-    <form ng-submit="save()">
+    <form ng-submit="vm.save()">
       <section class="modal-card-body">
         <div class="field">
           <label for="nome" class="label">Nome</label>
-          <input type="text" class="input" name="name" id="name" ng-model="$ctrl.selectedCar.name" required>
+          <input type="text" class="input" name="name" id="name" ng-model="vm.selectedCar.name" required>
         </div>
 
         <div class="field">
           <label for="prodYear" class="label">Ano fabricação</label>
-          <input type="number" class="input" name="prodYear" id="prodYear" ng-model="$ctrl.selectedCar.prodYear" required>
+          <input type="number" class="input" name="prodYear" id="prodYear" ng-model="vm.selectedCar.prodYear" required>
         </div>
 
         <div class="field">
           <label for="modelYear" class="label">Ano modelo</label>
-          <input type="number" class="input" name="modelYear" id="modelYear" ng-model="$ctrl.selectedCar.modelYear" required>
+          <input type="number" class="input" name="modelYear" id="modelYear" ng-model="vm.selectedCar.modelYear" required>
         </div>
 
         <div class="field">
           <label for="brand" class="label">Marca</label>
           <div class="select">
-            <select name="brand" id="brand" ng-model="$ctrl.selectedCar.brand">
+            <select name="brand" id="brand" ng-model="vm.selectedCar.brand">
               <option ng-repeat="tempBrand in brands" ng-value="tempBrand.name">{{ tempBrand.name }}</option>
             </select>
           </div>
@@ -33,12 +33,12 @@
 
         <div class="field">
           <label for="value" class="label">Valor</label>
-          <input type="number" class="input" name="value" id="value" ng-model="$ctrl.selectedCar.value" required>
+          <input type="number" class="input" name="value" id="value" ng-model="vm.selectedCar.value" required>
         </div>
       </section>
       <footer class="modal-card-foot">
         <button type="submit" class="button is-success">Salvar</button>
-        <button type="button" class="button" ng-click="$emit('close')">Cancelar</button>
+        <button type="button" class="button" ng-click="vm.onClose()">Cancelar</button>
       </footer>
     </form>
   </div>

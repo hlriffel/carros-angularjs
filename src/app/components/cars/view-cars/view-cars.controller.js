@@ -1,45 +1,41 @@
-export function viewCarsController($scope, carsService) {
+export function viewCarsController(carsService) {
 
-  $scope.filter = '';
-  $scope.showForm = false;
-  $scope.cars = carsService.cars;
-  $scope.selectedCar = null;
+  this.filter = '';
+  this.showForm = false;
+  this.cars = carsService.cars;
+  this.selectedCar = null;
 
-  $scope.add = () => {
-    $scope.showForm = true;
+  this.add = () => {
+    this.showForm = true;
   };
 
-  $scope.update = (car) => {
+  this.update = (car) => {
     if (car.id) {
       carsService.update(car.id, car);
     } else {
-      car.id = $scope.cars.length;
+      car.id = this.cars.length;
 
       carsService.add(car);
     }
 
-    $scope.showForm = false;
+    this.showForm = false;
   };
 
-  $scope.edit = car => {
-    $scope.showForm = true;
-    $scope.selectedCar = car;
+  this.edit = car => {
+    this.showForm = true;
+    this.selectedCar = car;
   };
 
-  $scope.delete = (index) => {
+  this.delete = (index) => {
     carsService.delete(index);
   }
 
-  $scope.$on('close',
-    () => {
-      $scope.showForm = false;
-      $scope.selectedCar = null;
-    }
-  );
+  this.close = () => {
+    this.showForm = false;
+    this.selectedCar = null;
+  };
 
-  $scope.$on('carSaved',
-    (event, car) => {
-      $scope.update(car);
-    }
-  );
+  this.carSaved = car => {
+    this.update(car);
+  };
 }

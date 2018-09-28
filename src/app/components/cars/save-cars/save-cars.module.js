@@ -4,10 +4,13 @@ import { saveCarsController } from './save-cars.controller';
 const saveCarsModule = angular.module('saveCarsModule', [])
   .component('saveCars', {
     bindings: {
-      selectedCar: '<'
+      selectedCar: '<',
+      onClose: '&',
+      carSaved: '&'
     },
     templateUrl: template,
-    controller: ['$scope', saveCarsController]
+    controller: saveCarsController,
+    controllerAs: 'vm'
   });
 
 export default saveCarsModule;

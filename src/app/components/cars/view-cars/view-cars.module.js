@@ -6,7 +6,8 @@ import { viewCarsController } from './view-cars.controller';
 const viewCarsModule = angular.module('viewCarsModule', [saveCarsModule.name])
   .component('viewCars', {
     templateUrl: template,
-    controller: ['$scope', 'carsService', viewCarsController]
+    controller: ['carsService', viewCarsController],
+    controllerAs: 'vm'
   });
 
 export default viewCarsModule;

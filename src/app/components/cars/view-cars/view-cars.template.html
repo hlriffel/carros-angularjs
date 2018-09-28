@@ -1,9 +1,9 @@
 <div class="columns">
   <div class="column">
-    <button class="button is-primary" ng-click="add()">Adicionar</button>
+    <button class="button is-primary" ng-click="vm.add()">Adicionar</button>
     <hr>
     <div class="field">
-      <input type="text" name="filter" id="filter" class="input" ng-model="filter">
+      <input type="text" name="filter" id="filter" class="input" ng-model="vm.filter">
     </div>
     <table class="table is-bordered">
       <thead>
@@ -17,15 +17,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="car in cars">
+        <tr ng-repeat="car in vm.cars">
           <td>{{ car.name }}</td>
           <td>{{ car.prodYear }}</td>
           <td>{{ car.modelYear }}</td>
           <td>{{ car.brand }}</td>
           <td>{{ car.value }}</td>
           <td>
-            <button class="button" ng-click="edit(car)">Editar</button>
-            <button class="button" ng-click="delete(car.id)">Excluir</button>
+            <button class="button" ng-click="vm.edit(car)">Editar</button>
+            <button class="button" ng-click="vm.delete(car.id)">Excluir</button>
           </td>
         </tr>
       </tbody>
@@ -33,5 +33,7 @@
   </div>
 </div>
 <save-cars
-    ng-show="showForm"
-    selected-car="selectedCar"></save-cars>
+    ng-show="vm.showForm"
+    selected-car="vm.selectedCar"
+    on-close="vm.close()"
+    car-saved="vm.carSaved(car)"></save-cars>
